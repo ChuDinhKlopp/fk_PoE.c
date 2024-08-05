@@ -48,15 +48,6 @@ int main() {
 	PoE(thetas, points, omegas, T_eb, arm.N_JOINTS);
 	linalg::matMul(T_eb, M, result);
 	linalg::printMat(result, "Final result");
-	//linalg::Matrix A, B, C;
-	//linalg::mallocMat(A, 4, 4);
-	//linalg::mallocMat(B, 4, 4);
-	//linalg::mallocMat(C, 4, 4);
-	//linalg::createIdentityMat(A);
-	//linalg::createIdentityMat(B);
-	//linalg::createIdentityMat(C);
-	//linalg::matMul(A, B, C);
-	//linalg::printMat(C, "C");
 }
 
 void PoE(float *thetas, float *points, float *omegas, linalg::Matrix &result, int N) {
