@@ -44,16 +44,16 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ducb/Local-Git-Repos/fk_PoE.c/src
+CMAKE_SOURCE_DIR = /home/ducb/Local-Git-Repos/fk_PoE.c/src/linalg
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ducb/Local-Git-Repos/fk_PoE.c/build
+CMAKE_BINARY_DIR = /home/ducb/Local-Git-Repos/fk_PoE.c/src/linalg/build
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/out.dir/all
+all: CMakeFiles/linalg.dir/all
 
 .PHONY : all
 
@@ -63,36 +63,36 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/out.dir/clean
+clean: CMakeFiles/linalg.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/out.dir
+# Target rules for target CMakeFiles/linalg.dir
 
 # All Build rule for target.
-CMakeFiles/out.dir/all:
-	$(MAKE) -f CMakeFiles/out.dir/build.make CMakeFiles/out.dir/depend
-	$(MAKE) -f CMakeFiles/out.dir/build.make CMakeFiles/out.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ducb/Local-Git-Repos/fk_PoE.c/build/CMakeFiles --progress-num=1,2 "Built target out"
-.PHONY : CMakeFiles/out.dir/all
+CMakeFiles/linalg.dir/all:
+	$(MAKE) -f CMakeFiles/linalg.dir/build.make CMakeFiles/linalg.dir/depend
+	$(MAKE) -f CMakeFiles/linalg.dir/build.make CMakeFiles/linalg.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ducb/Local-Git-Repos/fk_PoE.c/src/linalg/build/CMakeFiles --progress-num=1,2 "Built target linalg"
+.PHONY : CMakeFiles/linalg.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/out.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ducb/Local-Git-Repos/fk_PoE.c/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/out.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ducb/Local-Git-Repos/fk_PoE.c/build/CMakeFiles 0
-.PHONY : CMakeFiles/out.dir/rule
+CMakeFiles/linalg.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ducb/Local-Git-Repos/fk_PoE.c/src/linalg/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/linalg.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ducb/Local-Git-Repos/fk_PoE.c/src/linalg/build/CMakeFiles 0
+.PHONY : CMakeFiles/linalg.dir/rule
 
 # Convenience name for target.
-out: CMakeFiles/out.dir/rule
+linalg: CMakeFiles/linalg.dir/rule
 
-.PHONY : out
+.PHONY : linalg
 
 # clean rule for target.
-CMakeFiles/out.dir/clean:
-	$(MAKE) -f CMakeFiles/out.dir/build.make CMakeFiles/out.dir/clean
-.PHONY : CMakeFiles/out.dir/clean
+CMakeFiles/linalg.dir/clean:
+	$(MAKE) -f CMakeFiles/linalg.dir/build.make CMakeFiles/linalg.dir/clean
+.PHONY : CMakeFiles/linalg.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

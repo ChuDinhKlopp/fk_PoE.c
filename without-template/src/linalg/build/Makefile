@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ducb/Local-Git-Repos/fk_PoE.c/src
+CMAKE_SOURCE_DIR = /home/ducb/Local-Git-Repos/fk_PoE.c/src/linalg
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ducb/Local-Git-Repos/fk_PoE.c/build
+CMAKE_BINARY_DIR = /home/ducb/Local-Git-Repos/fk_PoE.c/src/linalg/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ducb/Local-Git-Repos/fk_PoE.c/build/CMakeFiles /home/ducb/Local-Git-Repos/fk_PoE.c/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ducb/Local-Git-Repos/fk_PoE.c/src/linalg/build/CMakeFiles /home/ducb/Local-Git-Repos/fk_PoE.c/src/linalg/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ducb/Local-Git-Repos/fk_PoE.c/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ducb/Local-Git-Repos/fk_PoE.c/src/linalg/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,44 +111,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named out
+# Target rules for targets named linalg
 
 # Build rule for target.
-out: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 out
-.PHONY : out
+linalg: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 linalg
+.PHONY : linalg
 
 # fast build rule for target.
-out/fast:
-	$(MAKE) -f CMakeFiles/out.dir/build.make CMakeFiles/out.dir/build
-.PHONY : out/fast
+linalg/fast:
+	$(MAKE) -f CMakeFiles/linalg.dir/build.make CMakeFiles/linalg.dir/build
+.PHONY : linalg/fast
 
-main.o: main.cpp.o
+linalg.o: linalg.cpp.o
 
-.PHONY : main.o
+.PHONY : linalg.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/out.dir/build.make CMakeFiles/out.dir/main.cpp.o
-.PHONY : main.cpp.o
+linalg.cpp.o:
+	$(MAKE) -f CMakeFiles/linalg.dir/build.make CMakeFiles/linalg.dir/linalg.cpp.o
+.PHONY : linalg.cpp.o
 
-main.i: main.cpp.i
+linalg.i: linalg.cpp.i
 
-.PHONY : main.i
+.PHONY : linalg.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/out.dir/build.make CMakeFiles/out.dir/main.cpp.i
-.PHONY : main.cpp.i
+linalg.cpp.i:
+	$(MAKE) -f CMakeFiles/linalg.dir/build.make CMakeFiles/linalg.dir/linalg.cpp.i
+.PHONY : linalg.cpp.i
 
-main.s: main.cpp.s
+linalg.s: linalg.cpp.s
 
-.PHONY : main.s
+.PHONY : linalg.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/out.dir/build.make CMakeFiles/out.dir/main.cpp.s
-.PHONY : main.cpp.s
+linalg.cpp.s:
+	$(MAKE) -f CMakeFiles/linalg.dir/build.make CMakeFiles/linalg.dir/linalg.cpp.s
+.PHONY : linalg.cpp.s
 
 # Help Target
 help:
@@ -158,10 +158,10 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... out"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... linalg"
+	@echo "... linalg.o"
+	@echo "... linalg.i"
+	@echo "... linalg.s"
 .PHONY : help
 
 
