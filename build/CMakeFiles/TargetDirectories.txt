@@ -1,0 +1,3 @@
+/home/ducb/Local-Git-Repos/fk_PoE.c/with-template/build/CMakeFiles/rebuild_cache.dir
+/home/ducb/Local-Git-Repos/fk_PoE.c/with-template/build/CMakeFiles/edit_cache.dir
+/home/ducb/Local-Git-Repos/fk_PoE.c/with-template/build/CMakeFiles/out.dir
