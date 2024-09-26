@@ -140,16 +140,64 @@ namespace linalg {
 				exit(EXIT_FAILURE);
 			}
 			
-			// zero out matC to avoid accumulated result
-			linalg::createZeroMat<T>(matC);
+		  	// these are the columns A
+			float32x4_t     A0;
+		  	float32x4_t     A1;
+		  	float32x4_t     A2;
+		  	float32x4_t     A3;
 
-			for (int i = 0; i < matA.n_rows; i++) {
-				for (int j = 0; j < matB.n_cols; j++) {
-					for (int k = 0; k < matA.n_cols; k++) {
-						matC.p[i * matB.n_cols + j] += matA.p[i * matA.n_cols + k] * matB.p[k * matB.n_cols + j];
-					}
-				}
-			}
+		  	// these are the columns B
+		  	float32x4_t     B0;
+		  	float32x4_t     B1;
+		  	float32x4_t     B2;
+		  	float32x4_t     B3;
+
+		  	// these are the columns C
+		  	float32x4_t     C0;
+		  	float32x4_t     C1;
+		  	float32x4_t     C2;
+		  	float32x4_t     C3;
+
+		  	A0 = vld1q_f32(matA.p);
+		  	A1 = vld1q_f32(matA.p + 4);
+		  	A2 = vld1q_f32(matA.p + 8);
+		  	A3 = vld1q_f32(matA.p + 12);
+
+
+		  	// Zero accumulators for C values
+		  	C0 = vmovq_n_f32(0);
+		  	C1 = vmovq_n_f32(0);
+		  	C2 = vmovq_n_f32(0);
+		  	C3 = vmovq_n_f32(0);
+
+		  	// Multiply accumulate in 4x1 blocks, i.e. each column in C
+		  	B0 = vld1q_f32(matB.p);
+		  	C0 = vfmaq_laneq_f32(C0, A0, B0, 0);
+		  	C0 = vfmaq_laneq_f32(C0, A1, B0, 1);
+		  	C0 = vfmaq_laneq_f32(C0, A2, B0, 2);
+		  	C0 = vfmaq_laneq_f32(C0, A3, B0, 3);
+		  	vst1q_f32(matC.p, C0);
+
+		  	B1 = vld1q_f32(matB.p + 4);
+		  	C1 = vfmaq_laneq_f32(C1, A0, B1, 0);
+		  	C1 = vfmaq_laneq_f32(C1, A1, B1, 1);
+		  	C1 = vfmaq_laneq_f32(C1, A2, B1, 2);
+		  	C1 = vfmaq_laneq_f32(C1, A3, B1, 3);
+		  	vst1q_f32(matC.p + 4, C1);
+
+		  	B2 = vld1q_f32(matB.p + 8);
+		  	C2 = vfmaq_laneq_f32(C2, A0, B2, 0);
+		  	C2 = vfmaq_laneq_f32(C2, A1, B2, 1);
+		  	C2 = vfmaq_laneq_f32(C2, A2, B2, 2);
+		  	C2 = vfmaq_laneq_f32(C2, A3, B2, 3);
+		  	vst1q_f32(matC.p + 8, C2);
+
+		  	B3 = vld1q_f32(matB.p + 12);
+		  	C3 = vfmaq_laneq_f32(C3, A0, B3, 0);
+		  	C3 = vfmaq_laneq_f32(C3, A1, B3, 1);
+		  	C3 = vfmaq_laneq_f32(C3, A2, B3, 2);
+		  	C3 = vfmaq_laneq_f32(C3, A3, B3, 3);
+		  	vst1q_f32(matC.p + 12, C3);
 		}
 	}
 

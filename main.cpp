@@ -2,7 +2,7 @@
 #include <omp.h>
 #include <cmath>
 #include <benchmark/benchmark.h>
-#include "linalg.hpp" // header-only library
+#include "optimized_linalg.hpp" // header-only library
 #include <mpi.h>
 
 #define VECTOR_SIZE 3
@@ -47,7 +47,7 @@ static void poe_bench(benchmark::State &s) {
 												1, 0, 0};
 	for (auto _: s) {
 		PoE<float>(thetas, points, omegas, T_eb, arm.N_JOINTS);
-		linalg::naiveMatMul<float>(T_eb, M, result);
+		linalg::vectorizedMatMul<float>(T_eb, M, result);
 		//for (int i = 0; i < 100000; i++) {
 		//	linalg::createIdentityMat<float>(T_eb);
 		//}
