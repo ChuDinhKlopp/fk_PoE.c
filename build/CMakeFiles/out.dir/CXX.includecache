@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/ducb/Local-Git-Repos/fk_PoE.c/with-template/src/linalg/linalg_T.hpp
+/home/ducb/Local-Git-Repos/fk_PoE.c/linalg.hpp
 string
 -
 stdarg.h
@@ -18,7 +18,7 @@ stdlib.h
 string.h
 -
 
-/home/ducb/Local-Git-Repos/fk_PoE.c/with-template/src/main.cpp
+/home/ducb/Local-Git-Repos/fk_PoE.c/main.cpp
 string
 -
 omp.h
@@ -27,8 +27,8 @@ cmath
 -
 benchmark/benchmark.h
 -
-linalg/linalg_T.hpp
-/home/ducb/Local-Git-Repos/fk_PoE.c/with-template/src/linalg/linalg_T.hpp
+linalg.hpp
+/home/ducb/Local-Git-Repos/fk_PoE.c/linalg.hpp
 mpi.h
 -
 
