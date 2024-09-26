@@ -10,7 +10,3 @@ target_link_libraries(out MPI::MPI_CXX)
 # Link Google benchmark
 find_package(benchmark REQUIRED)
 target_link_libraries(out benchmark::benchmark)
-
-# Link linalg: uncomment if using library instead of header-only library
-target_link_directories(out PRIVATE ${CMAKE_SOURCE_DIR}/linalg/build/)
-target_link_libraries(out linalg)

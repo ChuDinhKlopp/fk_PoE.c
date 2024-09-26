@@ -1,5 +1,5 @@
-#ifndef __LINALG_UTILS__
-#define __LINALG_UTILS__
+#ifndef __OPTIMIZED_LINALG__
+#define __OPTIMIZED_LINALG__
 
 #include <string>
 #include <stdarg.h>
@@ -11,8 +11,8 @@ namespace linalg {
 	// Matrix
 	template<typename T>
 	struct Matrix {
-		T *p = nullptr;
 		int n_rows, n_cols;
+		T *p = nullptr;
 	};
 	
 	template<typename T>
@@ -150,25 +150,6 @@ namespace linalg {
 					}
 				}
 			}
-		}
-	}
-
-	template<typename T>
-	void tiledMatMul(Matrix<T> &matA, Matrix<T> &matB, Matrix<T> &matC) {
-		if (isMatAllocated<T>(matA) && isMatAllocated<T>(matB) && isMatAllocated<T>(matC)) {
-			// Make sure the matrix multiplication is valid
-			if (matA.n_cols != matB.n_rows) {
-				fprintf(stderr, "Error: Dimension mismatch. Matrix of size (%d, %d) cannot multiply with matrix of size (%d, %d).\n",
-						matA.n_rows ,matA.n_cols, matB.n_rows, matB.n_cols);
-				exit(EXIT_FAILURE);
-			}
-			if (matC.n_rows != matA.n_rows || matC.n_cols != matB.n_cols) {
-				fprintf(stderr, "Error: the multiplication between matrices of size (%d, %d) and (%d, %d) should result in matrix of size (%d, %d), instead of (%d, %d).\n", matA.n_rows, matA.n_cols, matB.n_rows, matB.n_cols, matA.n_rows, matB.n_cols, matC.n_rows, matC.n_cols);
-				exit(EXIT_FAILURE);
-			}
-
-			// zero out matC to avoid accumulated result
-			linalg::createZeroMat<T>(matC);
 		}
 	}
 
@@ -316,4 +297,4 @@ namespace linalg {
 
 } /*namespace linalg*/
 
-#endif /*__LINALG_UTILS__*/
+#endif /*__OPTIMIZED_LINALG__*/
